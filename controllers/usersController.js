@@ -11,7 +11,7 @@ exports.createUser = async (req,res) => {
     const result = await pool.query(
         `INSERT INTO users (name,email)
          VALUES ($1,$2)
-         RETURNING *`
+         RETURNING *`,
         [name,email] 
     )
 
@@ -41,6 +41,6 @@ exports.deleteUser = async (req,res) => {
     const {id} = req.params;
 
     await pool.query(
-        `DELETE FROM notes WHERE id = $1`,[id]);
+        `DELETE FROM users WHERE id = $1`,[id]);
     res.sendStatus(204);
 };
