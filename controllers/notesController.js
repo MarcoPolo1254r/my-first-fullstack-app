@@ -1,3 +1,5 @@
+const pool = require('../db');
+
 exports.createNote = async (req, res) => {
   const { title, content } = req.body;
 
